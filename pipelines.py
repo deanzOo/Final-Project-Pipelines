@@ -19,5 +19,5 @@ def pipe2(model="netG_checkpoint_009.pt", text=''):
 
 
 p1 = Pipeline(pipe1, "Only Icon")
-p2 = Pipeline(pipe2, "Icon with Text")
+p2 = Pipeline(pipe2, "Icon with Text", True)
 pipelines = [p1, p2]

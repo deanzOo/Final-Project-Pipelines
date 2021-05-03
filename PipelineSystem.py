@@ -2,11 +2,12 @@ import json
 
 
 class Pipeline:
-    def __init__(self, f, name):
+    def __init__(self, f, name, requiresText = False):
         self.func = f
         self.name = name
         self.text = ''
         self.model = ''
+        self.requiresText = requiresText
 
     def set_text(self, text):
         self.text = text

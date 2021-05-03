@@ -55,7 +55,8 @@ def main():
             print("Theres no active pipeline")
             sys.stdout.flush()
 
-        active_pipeline.set_text(command)
+        if active_pipeline.requiresText:
+            active_pipeline.set_text(command)
         if len(argv) > 2:
             active_pipeline.set_model(argv[2])
 
