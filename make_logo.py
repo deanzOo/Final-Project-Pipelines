@@ -35,13 +35,13 @@ def upload_to_aws(local_file, bucket, prefix=''):
 def main():
     # init
     p_system = PipelineSystem(None, pipelines)
-
-    if len(sys.argv) > 1:
-        command = sys.argv[1]
+    argv = [i for i in sys.argv if i != 'null']
+    if len(argv) > 1:
+        command = argv[1]
     else:
         command = ''
     if command == 'set_active':
-        to_set = sys.argv[2]
+        to_set = argv[2]
         p_system.set_active_pipeline(to_set)
     elif command == 'get_active':
         print(p_system.get_active_pipeline(True))
@@ -54,10 +54,10 @@ def main():
         if not active_pipeline:
             print("Theres no active pipeline")
             sys.stdout.flush()
-        if len(sys.argv) > 2:
-            active_pipeline.set_text(sys.argv[2])
-        if len(sys.argv) > 3:
-            active_pipeline.set_model(sys.argv[3])
+        if len(argv) > 2:
+            active_pipeline.set_text(argv[2])
+        if len(argv) > 3:
+            active_pipeline.set_model(argv[3])
 
         image = active_pipeline.activate()
         upload_result = upload_to_aws(image, 'deep-logo-image')
