@@ -46,6 +46,15 @@ def main():
     elif command == 'get_active':
         print(p_system.get_active_pipeline(True))
         sys.stdout.flush()
+    elif command == 'sync':
+        for index in range(len(p_system.pipelines)):
+            print("###")
+            print(':')
+            print(str(index))
+            print(':')
+            print(p_system.pipelines[index].model)
+            print(':')
+            print(p_system.pipelines[index].text)
     else:
         active_pipeline = p_system.get_active_pipeline()
         if not active_pipeline:
