@@ -18,6 +18,6 @@ def pipe2(model="netG_checkpoint_009.pt", text=''):
     return merged_image_name
 
 
-p1 = Pipeline(pipe1)
-p2 = Pipeline(pipe2)
+p1 = Pipeline(pipe1, "Only Icon")
+p2 = Pipeline(pipe2, "Icon with Text")
 pipelines = [p1, p2]

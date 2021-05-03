@@ -2,8 +2,9 @@ import json
 
 
 class Pipeline:
-    def __init__(self, f):
+    def __init__(self, f, name):
         self.func = f
+        self.name = name
         self.text = ''
         self.model = ''
 
