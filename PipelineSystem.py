@@ -45,10 +45,12 @@ class PipelineSystem:
             with open(self.data_loc, 'w') as json_file:
                 json.dump(data, json_file)
 
-    def get_active_pipeline(self):
+    def get_active_pipeline(self, backend=False):
         with open(self.data_loc, 'r') as json_file:
             data = json.load(json_file)
             if data['active'] != -1:
+                if backend:
+                    return int(data['active'])
                 return self.pipelines[int(data['active'])]
             else:
                 return False

@@ -43,6 +43,9 @@ def main():
     if command == 'set_active':
         to_set = sys.argv[2]
         p_system.set_active_pipeline(to_set)
+    elif command == 'get_active':
+        print(p_system.get_active_pipeline())
+        sys.stdout.flush()
     else:
         active_pipeline = p_system.get_active_pipeline()
         if not active_pipeline:
