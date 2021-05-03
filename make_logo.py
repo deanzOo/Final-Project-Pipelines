@@ -62,7 +62,7 @@ def main():
 
         image = active_pipeline.activate()
         upload_result = upload_to_aws(image, 'deep-logo-image')
-        os.remove(image)
+        os.remove(upload_result)
         if upload_result:
             print("Upload Successful")
             print(upload_result)
