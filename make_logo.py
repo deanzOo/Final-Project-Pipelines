@@ -54,10 +54,9 @@ def main():
         if not active_pipeline:
             print("Theres no active pipeline")
             sys.stdout.flush()
+            active_pipeline.set_text(command)
         if len(argv) > 2:
-            active_pipeline.set_text(argv[2])
-        if len(argv) > 3:
-            active_pipeline.set_model(argv[3])
+            active_pipeline.set_model(argv[2])
 
         image = active_pipeline.activate()
         upload_result = upload_to_aws(image, 'deep-logo-image')
