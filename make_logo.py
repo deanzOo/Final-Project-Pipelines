@@ -48,7 +48,6 @@ def main():
         sys.stdout.flush()
     elif command == 'sync':
         for index in range(len(p_system.pipelines)):
-            print("###")
             print(str(index) + ':' + p_system.pipelines[index].model + ':' + p_system.pipelines[index].text)
     else:
         active_pipeline = p_system.get_active_pipeline()
